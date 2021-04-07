@@ -1,6 +1,8 @@
 import React, {useState} from 'react';
 import {
     DropDownContainer,
+    SelectBox,
+    SelectItem,
 } from '../styled/dropdown_styles';
 import onClickOutside  from 'react-onclickoutside';
 
@@ -41,7 +43,14 @@ const Dropdown = () => {  // shoud cause error
     return (
         <DropDownContainer>
             <div>
-                Something
+                {optionValues.map((option) => {
+                    return (
+                        <div key = {option.id} > {option.text} </div>
+                    
+                    )
+                
+                
+                })}
             
             </div>
         
