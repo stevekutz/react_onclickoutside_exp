@@ -9,11 +9,12 @@ export const DropDownContainer = styled.div`
     
     border: 5px solid deeppink;
 
-    width: 20%;
+    width: 50%;
     margin: 0 auto;
     display: flex;
-    flex-direction: column;
+    //  flex-direction: column;
     justify-content: center;
+    margin: 5px;
 
 
 `;

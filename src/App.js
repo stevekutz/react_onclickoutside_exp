@@ -1,12 +1,25 @@
 import React from 'react';
-import DropDown from './comp/DropDown';
+import DropDownSelect from './comp/DropDownSelect';
+import DropDownList from './comp/DropDownList';
+import {
+    MainContainer,
+    SubContainer,
 
+
+} from './styled/app_styles';
 
 function App() {
   return (
-    <div>
-        <DropDown />
-    </div>
+    <MainContainer>
+        <SubContainer>
+            <DropDownSelect />        
+        </SubContainer>
+        <SubContainer>
+            <DropDownList />
+        </SubContainer>
+        
+        
+    </MainContainer>
   );
 }
 
