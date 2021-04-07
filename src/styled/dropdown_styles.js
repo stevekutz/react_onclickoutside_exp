@@ -6,9 +6,13 @@ export const DropDownContainer = styled.div`
         background: yellow;
     }
     
+    
     border: 5px solid deeppink;
 
+    width: 20%;
+    margin: 0 auto;
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
 

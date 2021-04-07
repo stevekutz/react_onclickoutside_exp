@@ -6,13 +6,14 @@ import {
 } from '../styled/dropdown_styles';
 import onClickOutside  from 'react-onclickoutside';
 
-const Dropdown = () => {  // shoud cause error
+// const DropDown = () => {  // shoud cause error
+function DropDown(){
     const [isOpen, setIsOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState('');
     
     const toggle = () => {setIsOpen(!isOpen)};
 
-    Dropdown.handleClickOutside = () => setIsOpen(false);
+    DropDown.handleClickOutside = () => setIsOpen(false);
 
     const selectOption = (value) => {
         setIsOpen(false);
@@ -42,18 +43,33 @@ const Dropdown = () => {  // shoud cause error
 
     return (
         <DropDownContainer>
-            <div>
+            <SelectBox>
                 {optionValues.map((option) => {
                     return (
-                        <div key = {option.id} > {option.text} </div>
-                    
-                    )
-                
-                
+                        <SelectItem key = {option.id} > {option.text} </SelectItem>                    
+                    )                
                 })}
             
+            </SelectBox>
+
+            <div onClick = {toggle}>
+                {selectedValue ? 'Selected' + selectedValue : 'SelectOption'}
             </div>
-        
+
+            {isOpen ? 
+                <ul>
+                    {optionValues.map((option) => 
+                    <li key = {option.id} onClick = {() => selectOption(option.text)}>
+                        <div> {option.text} </div>
+                    </li>
+                    )}
+                
+                </ul>
+                :
+                null
+            }
+
+
         
         </DropDownContainer>
     
@@ -61,5 +77,11 @@ const Dropdown = () => {  // shoud cause error
 
 }
 
-export default Dropdown;
+const onClickOutsideConfig = {
+    handleClickOutside: () => DropDown.handleClickOutside, 
+}
+
+// export default Dropdown;
+
+export default onClickOutside(DropDown, onClickOutsideConfig);
 
