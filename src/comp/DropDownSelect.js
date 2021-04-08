@@ -9,42 +9,36 @@ import {
 
 // const DropDown = () => {  // should cause error ==> Cannot read property 'isReactComponent' of undefined
 function DropDownSelect(){
-    // const [isOpen, setIsOpen] = useState(false);
     const [selectedValue, setSelectedValue] = useState('');
     
-    // const toggle = () => {setIsOpen(!isOpen)};
-
-    // DropDownSelect.handleClickOutside = () => setIsOpen(false);
-
-    const selectOption = (value) => {
-        // setIsOpen(false);
-        setSelectedValue(value);
+    const activeOption = (e) => {
+        setSelectedValue(e.target.value)
     
     }
 
-
     return (
         <DropDownContainer>
-            <SelectBox>
+            <SelectBox 
+                id = "optionSelected" 
+                value = {selectedValue} 
+                onChange = {activeOption}
+            >
                 {optionValuesAlias.map((option) => {
                     return (
-                        <SelectItem key = {option.id}
+                        <SelectItem 
+                            key = {option.id}
                         > {option.text} </SelectItem>                    
                     )                
                 })}
             
             </SelectBox>
+            <div> Selected:  {selectedValue} </div>
         </DropDownContainer>
     
     )
 
 }
 
-// const onClickOutsideConfig = {
-//     handleClickOutside: () => DropDownSelect.handleClickOutside, 
-// }
-
 export default DropDownSelect;
 
-// export default onClickOutside(DropDownSelect, onClickOutsideConfig);
 
